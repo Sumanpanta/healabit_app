@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "385302094841",
+    "project_id": "my-healabit-app",
+    "storage_bucket": "my-healabit-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:385302094841:android:2758115ea7cdff5b4a5328",
+        "android_client_info": {
+          "package_name": "com.suman.healabit_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "385302094841-tb08ldpgpq38kgl279qvdujst1hib6q1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARuk5vXS6D0BSuWWABO4mlqV_-x6hCnvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "385302094841-tb08ldpgpq38kgl279qvdujst1hib6q1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
