@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:healabit_app/models/user.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:healabit_app/models/settings.dart';
@@ -10,16 +11,16 @@ import 'package:healabit_app/ui/widgets/custom_circle_button.dart';
 import 'package:healabit_app/ui/widgets/custom_flat_button.dart';
 
 class SoccerBasics extends StatefulWidget {
-  final FirebaseUser firebaseUser;
-  final Settings settings;
+  final FireBaseUser firebaseUser;
+  final ModelSettings settings;
 
-  SoccerBasics({this.firebaseUser, this.settings});
+  SoccerBasics({required this.firebaseUser, required this.settings});
   _SoccerBasicsState createState() => _SoccerBasicsState();
 }
 
 class _SoccerBasicsState extends State<SoccerBasics> {
 
-  VoidCallback onBackPress;
+  late VoidCallback onBackPress; //late modifier
 
 
   @override
@@ -101,12 +102,12 @@ class _SoccerBasicsState extends State<SoccerBasics> {
           children: <Widget>[
             new Flexible(
               child: StreamBuilder(
-                stream: Firestore.instance.collection('exercise1').orderBy('no').snapshots(),
+                stream: FirebaseFirestore.instance.collection('exercise1').orderBy('no').snapshots(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
                     return Text("Loading...");
                   }
-                  return new ListView.builder(
+                  return ListView.builder(
                     itemCount: snapshot.data.documents.length + 1,
                     itemBuilder: (context, index) {
                       if (index == 0) {
@@ -168,7 +169,7 @@ class _SoccerBasicsState extends State<SoccerBasics> {
                           ),
                         );
                       } else {
-                        return _buildList(context, snapshot.data.documents[index - 1]);
+                        return _buildList(context, snapshot.data?.hashCode as DocumentSnapshot<Object?>);
                       }
                     },
                   ); 
@@ -214,7 +215,7 @@ class _SoccerBasicsState extends State<SoccerBasics> {
                             child: ButtonTheme(
                               minWidth: 200.0,
                               // height: 100.0,
-                              child: CustomFlatButton(
+                              child: CustomFlatButton(      //error
                                 title: "I'm ready!",
                                 fontSize: 20,
                                 textColor: Colors.black,
@@ -230,7 +231,7 @@ class _SoccerBasicsState extends State<SoccerBasics> {
                                 splashColor: Colors.black12,
                                 borderColor: Color(0xFFDCE2ED),
                                 borderWidth: 0,
-                                color: Color(0xFFDCE2ED),
+                                color: Color(0xFFDCE2ED), fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -239,7 +240,7 @@ class _SoccerBasicsState extends State<SoccerBasics> {
                             child: ButtonTheme(
                               minWidth: 200.0,
                               // height: 100.0,
-                              child: CustomFlatButton(
+                              child: CustomFlatButton(                   //error
                                 title: "Need more time",
                                 fontSize: 20,
                                 textColor: Colors.white,

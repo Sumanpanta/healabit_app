@@ -1,8 +1,8 @@
-class Settings {
+class ModelSettings {
   bool sound;
   bool voice;
 
-  Settings({
+  ModelSettings({
     required this.sound,
     required this.voice
   });

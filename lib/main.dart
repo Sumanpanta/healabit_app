@@ -23,7 +23,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Firestore.instance.settings(persistenceEnabled: true);
+  FirebaseFirestore.instance.settings;      //parenthesis removed 
   // Firestore.instance.settings(timestampsInSnapshotsEnabled: true);
   SharedPreferences.getInstance().then((prefs) {
     runApp(MyApp(prefs: prefs));

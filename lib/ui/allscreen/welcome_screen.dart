@@ -108,7 +108,7 @@ class WelcomeScreen extends StatelessWidget {
               },
               splashColor: Colors.white,
               borderColor: Colors.white,
-              borderWidth: 2,
+              borderWidth: 2, color: Colors.black, shape: null,   //yeha shape rakh
             ),
           ),
         ],

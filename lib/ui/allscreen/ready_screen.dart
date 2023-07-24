@@ -5,14 +5,14 @@ import 'package:healabit_app/ui/allscreen/exercise_screen.dart';
 import 'package:healabit_app/ui/allscreen/inout.dart';
 
 class Ready extends StatefulWidget {
-  final Settings settings;
-  Ready({this.settings});
+  final ModelSettings settings;
+  Ready({super.key, required this.settings});
 
   _ReadyState createState() => _ReadyState();
 }
 
 class _ReadyState extends State<Ready> {
-  VoidCallback onBackPress;
+  late VoidCallback onBackPress;  //late modifier put
 
   @override
   void initState() {

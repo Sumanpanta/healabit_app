@@ -4,7 +4,7 @@ import 'package:healabit_app/models/settings.dart';
 import 'package:healabit_app/ui/allscreen/main_screen.dart';
 
 class Report extends StatefulWidget {
-  Settings settings;
+  ModelSettings settings;
   
   Report({this.settings});
   _ReportState createState() => _ReportState();

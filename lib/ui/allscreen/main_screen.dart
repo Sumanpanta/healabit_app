@@ -1,6 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:healabit_app/business/auth.dart';
 import 'package:healabit_app/models/settings.dart';
+import 'package:healabit_app/models/user.dart';
 import 'package:healabit_app/ui/allscreen/root_screen.dart';
 import 'package:healabit_app/ui/allscreen/settings_screen.dart';
 import 'package:healabit_app/ui/allscreen/activity.dart';
@@ -12,16 +15,18 @@ import 'package:healabit_app/ui/allscreen/soccerbasics_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class MainScreen extends StatefulWidget {
-  final FirebaseUser firebaseUser;
-  final Settings settings;
+  Key?key;
+  final FireBaseUser firebaseUser;
+  final ModelSettings settings;
 
-  MainScreen({this.firebaseUser, required this.settings});
+  MainScreen({Key?key,required this.firebaseUser, required this.settings});
 
   _MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
 
   @override
   void initState() {
@@ -36,12 +41,13 @@ class _MainScreenState extends State<MainScreen> {
       child: new Scaffold(
           key: _scaffoldKey,
           appBar: new AppBar(
+            
             elevation: 0.5,
-            leading: new IconButton(
-                icon: new Icon(Icons.menu),
-                onPressed: () => _scaffoldKey.currentState.openDrawer()),
+            leading: IconButton(
+                icon: Icon(Icons.menu),
+                onPressed: () => _scaffoldKey.currentState!.openDrawer()), //currrentState! for void function
             title: new Text(
-              'Brave Fit',
+              'HealAbit',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 22,  
@@ -175,8 +181,8 @@ class _MainScreenState extends State<MainScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => SoccerBasics(
-                                    settings: widget.settings,
+                                  builder: (context) => SoccerBasics(firebaseUser: null,
+                                   settings: widget.settings,
                                   )),
                               ); 
                             },

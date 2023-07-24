@@ -11,7 +11,7 @@ import 'package:healabit_app/ui/allscreen/totalworkouts.dart';
 
 // ignore: must_be_immutable
 class ActivityScreen extends StatefulWidget {
-  Settings settings;
+  ModelSettings settings;
 
   ActivityScreen({required this.settings});
   @override

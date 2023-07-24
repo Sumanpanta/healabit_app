@@ -18,7 +18,7 @@ import 'package:healabit_app/models/settings.dart';
 // }
 
 class VideoPlayerScreen extends StatefulWidget {
-  final Settings settings;
+  final ModelSettings settings;
   final String url;
 
   VideoPlayerScreen({Key? key, required this.settings, required this.url}) : super(key: key);
@@ -28,8 +28,8 @@ class VideoPlayerScreen extends StatefulWidget {
 }
 
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
-  VideoPlayerController _controller;
-  Future<void> _initializeVideoPlayerFuture;
+  late VideoPlayerController _controller;
+  late Future<void> _initializeVideoPlayerFuture;
 
   @override
   void initState() {

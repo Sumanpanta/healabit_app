@@ -5,7 +5,7 @@
 
 import 'dart:async';
 
-//import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -19,8 +19,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 
 class InOut extends StatefulWidget {
-   Settings settings;
-  InOut({this.settings});
+   ModelSettings settings;
+  InOut({super.key, required this.settings});
 
   @override
   _InOutState createState() => _InOutState();
@@ -66,13 +66,14 @@ class _InOutState extends State<InOut> {
   */
   void playMusic(String title, String method) {
     Future loadMusic() async {
-      advancedPlayer = await AudioCache().play("music/" + title + ".mp3");
+      advancedPlayer = await AudioCache().play("music/$title.mp3");
     }
 
     if (method == "sound") {
       if(widget.settings == null) {
         // loadMusic();
-      } else if (widget.settings.sound) {
+      } else 
+       if (widget.settings.sound) {
         loadMusic();
       }
     }

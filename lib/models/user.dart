@@ -1,17 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class User {
+class FireBaseUser {
   final String userID;
   final String firstName;
   final String email;
   final String profilePictureURL;
 
-  User({
+  FireBaseUser({
     required this.userID,
     required this.firstName,
     required this.email,
     required this.profilePictureURL,
   });
+
+  Future<String?>? get uid => null;
 
   Map<String, Object> toJson() {
     return {
@@ -23,17 +25,16 @@ class User {
     };
   }
 
-  factory User.fromJson(Map<String, Object> doc) {
-    User user = User(
-      userID: doc['userID'],
-      firstName: doc['firstName'],
-      email: doc['email'],
-      profilePictureURL: doc['profilePictureURL'],
+  factory FireBaseUser.fromJson(Map<String, dynamic> doc) {     //,param1 removed if any error occure, try fixing it 
+    return FireBaseUser(
+      userID: doc['userID'] as String,
+      firstName: doc['firstName'] as String,
+      email: doc['email'] as String,
+      profilePictureURL: doc['profilePictureURL'] as String,
     );
-    return user;
   }
 
-  factory User.fromDocument(DocumentSnapshot doc) {
-    return User.fromJson(doc.data as Map<String, Object>);
+  factory FireBaseUser.fromDocument(DocumentSnapshot doc) {
+    return FireBaseUser.fromJson(doc.data() as Map<String, dynamic>);
   }
 }

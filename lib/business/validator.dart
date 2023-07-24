@@ -6,14 +6,14 @@ class Validator {
 
   static bool validateNumber(String text) {
     Pattern pattern = r'^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$';
-    RegExp regex = RegExp(pattern);
+    RegExp regex = RegExp(pattern as String); // I assign pattern as String to fix 
     return regex.hasMatch(text);
   }
 
   static bool validateEmail(String text) {
     Pattern pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-    RegExp regex = RegExp(pattern);
+    RegExp regex = RegExp(pattern as String); //sm here
     return regex.hasMatch(text);
   }
 

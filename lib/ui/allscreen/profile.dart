@@ -4,7 +4,7 @@ import 'package:healabit_app/models/settings.dart';
 
 
 class ProfileScreen extends StatefulWidget {
-  final Settings settings;
+  final ModelSettings settings;
 
   ProfileScreen({required this.settings});
   @override

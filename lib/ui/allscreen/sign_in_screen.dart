@@ -193,7 +193,7 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   void _emailLogin(
-      {String email, String password, BuildContext context}) async {
+      {required String email, required String password, required BuildContext context}) async {
     if (Validator.validateEmail(email) &&
         Validator.validatePassword(password)) {
       try {
@@ -250,7 +250,7 @@ class _SignInScreenState extends State<SignInScreen> {
   //   }
   // }
 
-  void _showErrorAlert({String title, String content, VoidCallback onPressed}) {
+  void _showErrorAlert({required String title, required String content, required VoidCallback onPressed}) {
     showDialog(
       barrierDismissible: false,
       context: context,

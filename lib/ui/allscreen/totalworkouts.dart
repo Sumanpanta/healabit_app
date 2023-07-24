@@ -4,9 +4,9 @@ import 'package:healabit_app/ui/allscreen/activity.dart';
 import 'package:healabit_app/models/settings.dart';
 
 class TotalWorkouts extends StatefulWidget {
-  Settings settings;
+  ModelSettings settings;
 
-  TotalWorkouts({this.settings});
+  TotalWorkouts({required this.settings});
   @override
   _TotalWorkoutsState createState() => _TotalWorkoutsState();
 }
@@ -36,7 +36,7 @@ class _TotalWorkoutsState extends State<TotalWorkouts> {
                 },
                 icon: Icon(
                   Icons.arrow_back_ios,
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).hintColor,
                 ),
               ),
               Padding(
@@ -44,7 +44,7 @@ class _TotalWorkoutsState extends State<TotalWorkouts> {
                 child: Text(
                   '7 TOTAL WORKOUTS COMPLETED',
                   style: TextStyle(
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).hintColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
                   ),
@@ -59,7 +59,7 @@ class _TotalWorkoutsState extends State<TotalWorkouts> {
                       child: Container(
       
               decoration: BoxDecoration(
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).hintColor,
                 borderRadius: BorderRadius.only(
                   topLeft:Radius.circular(20.0),
                   topRight: Radius.circular(20.0),

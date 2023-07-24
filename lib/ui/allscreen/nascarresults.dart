@@ -1,11 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:healabit_app/models/settings.dart';
+import 'package:healabit_app/models/user.dart';
 import 'package:healabit_app/ui/allscreen/main_screen.dart';
 
 class NascarResultsScreen extends StatefulWidget {
-  Settings settings;
+  ModelSettings settings;
   
-  NascarResultsScreen({this.settings});
+  NascarResultsScreen({required this.settings});
   @override
   _NascarResultsScreenState createState() => _NascarResultsScreenState();
 }
@@ -128,7 +130,7 @@ class _NascarResultsScreenState extends State<NascarResultsScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => MainScreen(
-                          settings: widget.settings,
+                          settings: widget.settings, firebaseUser: FireBaseUser.fromDocument(),
                         )),
                     );
                   },

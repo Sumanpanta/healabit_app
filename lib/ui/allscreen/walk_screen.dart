@@ -11,7 +11,7 @@ class WalkthroughScreen extends StatefulWidget {
       icon: Icons.developer_mode,
       title: "Flutter Onboarding",
       description:
-          "Build your onboarding flow in seconds.",
+          "Build your onboarding flow in seconds.", extraWidget: null,
     ),
   Walkthrough(
     icon: Icons.layers,
@@ -26,7 +26,7 @@ class WalkthroughScreen extends StatefulWidget {
   ),
   ];
 
-  WalkthroughScreen({this.prefs});
+  WalkthroughScreen({required this.prefs});
 
   @override
   _WalkthroughScreenState createState() => _WalkthroughScreenState();
@@ -40,7 +40,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
         autoplay: false,
         index: 0,
         loop: false,
-        pagination: new SwiperPagination(
+        pagination: SwiperPagination(
           margin: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 40.0),
           builder: new DotSwiperPaginationBuilder(
               color: Colors.white30,

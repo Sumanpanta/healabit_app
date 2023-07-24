@@ -24,14 +24,14 @@ class _ResetPasswordState extends State<ResetPassword> {
       Navigator.of(context).pop();
     };
 
-    _emailField = new CustomTextField(
+    _emailField = CustomTextField(
       baseColor: Colors.grey,
-      borderColor: Colors.grey[400],
+     borderColor: Colors.grey,
       errorColor: Colors.red,
       controller: _email,
       hint: "E-mail Adress",
       inputType: TextInputType.emailAddress,
-      validator: Validator.validateEmail,
+      validator: Validator.validateEmail, onChanged: null,
     );
   }
 
@@ -83,7 +83,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         splashColor: Colors.black12,
                         borderColor: Color.fromRGBO(59, 89, 152, 1.0),
                         borderWidth: 0,
-                        color: Color.fromRGBO(59, 89, 152, 1.0),
+                        color: Color.fromRGBO(59, 89, 152, 1.0), shape: null,
                       ),
                     ),
                   ],
@@ -124,7 +124,7 @@ class _ResetPasswordState extends State<ResetPassword> {
   }
 
   void _resetPassword(
-      {String email}) async {
+      {required String email}) async {
     if (Validator.validateEmail(email)) {
       try {
         SystemChannels.textInput.invokeMethod('TextInput.hide');
@@ -143,7 +143,7 @@ class _ResetPasswordState extends State<ResetPassword> {
     }
   }
 
-  void _showErrorAlert({String title, String content, VoidCallback onPressed}) {
+  void _showErrorAlert({required String title, required String content, required VoidCallback onPressed}) {
     showDialog(
       barrierDismissible: false,
       context: context,

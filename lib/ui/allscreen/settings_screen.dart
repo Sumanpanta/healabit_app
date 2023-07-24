@@ -1,21 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:healabit_app/models/settings.dart';
 import 'package:healabit_app/ui/allscreen/main_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
-  final Settings settings;
-  SettingsScreen({this.settings});
+  final ModelSettings settings;
+   SettingsScreen({required this.settings});
 
-  bool get sound => null;
+  bool? get sound => null;  //return type nullable by adding ?
 
-  bool get voice => null;
+  bool? get voice => null;
 
   _SettingsScreenState createState() => _SettingsScreenState();
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  final settings = Settings(
+  final settings = ModelSettings(
     sound: false,
     voice: true,
   );
@@ -57,7 +58,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             leading: new IconButton(
                 icon: new Icon(Icons.arrow_back),
                 onPressed: () {
-                  _scaffoldKey.currentState.openDrawer();
+                  _scaffoldKey.currentState?.openDrawer();
                   Navigator.push(
                     context,
                     MaterialPageRoute(
